@@ -3,17 +3,21 @@
 #include <string>
 #include "IEventData.h"
 
-enum STATE {
-	STATE_A = 0,
-	STATE_B = 1,
-	STATE_C = 2
-};
-
+/**
+* @brief Interface for events.
+*
+* This class defines base event structure.
+*/
 class IEvent {
 public:
 	virtual ~IEvent () { delete Data; };
+	/**
+     * Attaching data to the event.
+     *
+	 * @param IEventData* pointer to attached event.
+     */
 	virtual void SetData (IEventData* data) = 0;
 
-	IEventData*  	Data;
-	std::string		Name;
+	IEventData*  	Data; /**< Attached data. */
+	std::string		Name; /**< Name of the event. */
 };
